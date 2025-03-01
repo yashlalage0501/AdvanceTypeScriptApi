@@ -47,7 +47,7 @@ const player1:player = {
     password:"passs@123e"
 }
 
-//we can not update properties of object -> it is like Object.freez();
+//we can not update properties of object now -> it is like Object.freez();
 player1.rank = 12;
 
 //another syntax for Readonly
@@ -64,3 +64,46 @@ const player2:Readonly<player2> = {
 }
 
 player2.name = "lalage";//can not do this
+
+// 4->Record
+type Gamer = {
+    rank:number;
+    id:number;
+    name:string
+}
+
+type Gamers = {
+    [key:string]:Gamer
+}
+
+let gamers:Gamers = {
+    "gamer1":{
+        rank:123,
+        id:12,
+        name:"yash"
+    },
+    "gamer2":{
+        rank:1234,
+        id:13,
+        name:"bot"
+    }
+}
+//insted of above approch we can do this same with records with more cleaner way
+
+type GamersRecord = Record<string,Gamer>
+
+ let gamersRecord:GamersRecord = {
+    "gamer1":{
+        rank:123,
+        id:12,
+        name:"yash"
+    },
+    "gamer2":{
+        rank:1234,
+        id:13,
+        name:"bot"
+    }
+ }
+
+
+
