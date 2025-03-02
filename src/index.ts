@@ -50,7 +50,7 @@ const player1: player = {
 }
 
 //we can not update properties of object now -> it is like Object.freez();
-player1.rank = 12;
+// player1.rank = 12;
 
 //another syntax for Readonly
 type player2 = {
@@ -65,7 +65,7 @@ const player2: Readonly<player2> = {
     rank: 1443
 }
 
-player2.name = "lalage";//can not do this
+// player2.name = "lalage";//can not do this
 
 // 4->Record
 type Gamer = {
@@ -125,7 +125,7 @@ let empEmil: Omit<Employee, 'empid'> = {
 //Exclude -> We can use Exclude<> with types only for interface we can use omit
 type Status2 = "active" | "inactive" | "pending";
 
-let status2: Exclude<Status2, 'pending'> = "pending";
+// let status2: Exclude<Status2, 'pending'> = "pending";
 
 let status3: Exclude<Status2, 'pending'> = "active";
 
@@ -146,7 +146,7 @@ function pair<T,U>(vla1:T,val2:U):[T,U]{
 }
 
 let res4 = pair<string,number>("yash",13)
-console.log(res);
+// console.log(res);
 
 //generics in interface
 
@@ -159,9 +159,39 @@ const numberBox: Box<number> = {value:20};
 const stringBox: Box<string> = {value:"yash"};
 
 //default generic
-function defaultIdentity<T = string>(val:string):T{
+function defaultIdentity<T = string>(val:T):T{
     return val;
 }
 
 defaultIdentity("yash");
 defaultIdentity<number>(12);
+
+//map
+type MapUser = {
+    name:string,
+    age:number
+}
+
+const mapUsers = new Map<string,MapUser>();
+
+mapUsers.set("user1",{name:"yash",age:12});
+mapUsers.set("user2",{name:"yash",age:13});
+
+console.log("map started-------------------------");
+console.log(mapUsers);
+console.log(mapUsers.get("user1"));
+
+// mapUsers.delete("user2");
+
+mapUsers.forEach((value,key)=>{
+    console.log(key);
+    console.log(value);
+})
+
+//conver map into array
+let arrMapUsers =  Array.from(mapUsers);
+//now we can perform fiter and map on it
+console.log(arrMapUsers);
+//arrMapUsers.map()
+//arrMapUsers.filter()
+

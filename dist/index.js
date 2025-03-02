@@ -18,14 +18,11 @@ const player1 = {
     name: "yash",
     password: "passs@123e"
 };
-//we can not update properties of object now -> it is like Object.freez();
-player1.rank = 12;
 const player2 = {
     name: "yash",
     password: "yashh",
     rank: 1443
 };
-player2.name = "lalage"; //can not do this
 let gamers = {
     "gamer1": {
         rank: 123,
@@ -55,7 +52,7 @@ let empEmil = {
     email: "yash@gmail.com",
     isActive: false,
 };
-let status2 = "pending";
+// let status2: Exclude<Status2, 'pending'> = "pending";
 let status3 = "active";
 //generics
 function identity(val) {
@@ -69,7 +66,6 @@ function pair(vla1, val2) {
     return [vla1, val2];
 }
 let res4 = pair("yash", 13);
-console.log(res);
 const numberBox = { value: 20 };
 const stringBox = { value: "yash" };
 //default generic
@@ -78,3 +74,20 @@ function defaultIdentity(val) {
 }
 defaultIdentity("yash");
 defaultIdentity(12);
+const mapUsers = new Map();
+mapUsers.set("user1", { name: "yash", age: 12 });
+mapUsers.set("user2", { name: "yash", age: 13 });
+console.log("map started-------------------------");
+console.log(mapUsers);
+console.log(mapUsers.get("user1"));
+// mapUsers.delete("user2");
+mapUsers.forEach((value, key) => {
+    console.log(key);
+    console.log(value);
+});
+//conver map into array
+let arrMapUsers = Array.from(mapUsers);
+//now we can perform fiter and map on it
+console.log(arrMapUsers);
+//arrMapUsers.map()
+//arrMapUsers.filter()
