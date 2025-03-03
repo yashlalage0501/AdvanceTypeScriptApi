@@ -195,4 +195,18 @@ console.log(arrMapUsers);
 //arrMapUsers.map()
 //arrMapUsers.filter()
 
+//type of
+let tyObj = {
+    name:"yash",
+    age:12
+
+}
+
+type TyObj = typeof tyObj;
+//{name:string;age:number}
+let impTyObj:TyObj = {
+    name:"yash",
+    age:12
+}
+
 

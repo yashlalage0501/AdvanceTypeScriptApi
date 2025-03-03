@@ -91,3 +91,13 @@ let arrMapUsers = Array.from(mapUsers);
 console.log(arrMapUsers);
 //arrMapUsers.map()
 //arrMapUsers.filter()
+//type of
+let tyObj = {
+    name: "yash",
+    age: 12
+};
+//{name:string;age:number}
+let impTyObj = {
+    name: "yash",
+    age: 12
+};
